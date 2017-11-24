@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
 </head>
-<body>This is the dashboard.
-<p>{{student}}</p>
-<p>{{quiz}}</p>
-<p>{{result}}</p>
-
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<body>
+<h1>Student Table</h1>
+<p><a href="student/add">Add a Student</a></p>
+<table>
+    <th style="text-align:left">Student ID</th>
+    <th style="text-align:left">Name</th>
+  {% for row in student %}
+  <tr>
+      <td style="width:100px">{{ row['id']}}</td>
+      <td>{{ row['f_name'] }} {{ row['l_name']}}</td>
+  </tr>
+  {% endfor %}
+</table>
+<h1>Quiz Table</h1>
+<p><a href="quiz/add">Add a Quiz</a> or <a href="results/add">Add a Quiz Result</a></p>
+<table>
+    <th style="text-align:left">Quiz ID</th>
+    <th style="text-align:left">Subject</th>
+    <th style="text-align:left">Number of questions</th>
+    <th style="text-align:left">Date</th>
+  {% for row in quiz %}
+  <tr>
+      <td style="width:100px">{{ row['id']}}</td>
+      <td style="width:300px">{{ row['subject']}}</td>
+      <td style="width:200px">{{ row['num_qs'] }}</td>
+      <td style="width:200px">{{ row['quizdate']}}</td>
+  </tr>
+  {% endfor %}
+</table>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Quiz Result</title>
+</head>
+<body>
+    {% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}
+<p>Please select the Student and Quiz, then enter the Result.
+<form action="add" method="post">
+    <p><select name="student"><br>
+        <option value="Select">Select a Student:</option>
+              {% for row in student %}
+              <option value="{{ row['id'] }}">{{ row['f_name'] }} {{ row['l_name'] }}</option>
+              {% endfor %}
+    </select></p>
+    <p><select name="quiz"><br>
+        <option value="Select">Select a Quiz:</option>
+              {% for row in quiz %}
+              <option value="{{ row['id'] }}">{{ row['subject'] }}</option>
+              {% endfor %}
+    </select></p>
+    <p>Result (between 0 and 100:<input type="number" name="score" min="0" max="100"</p>
+    <p><input type="submit" value="Submit"</p>
+</form>
+</body>
+</html>

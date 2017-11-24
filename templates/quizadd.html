@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Quiz</title>
+</head>
+<body>
+    {% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}
+<p>Please enter the quiz information.
+<form action="add" method="post">
+    <p>Subject:<input type="text" name="subject"</p>
+    <p>Number of Questions (between 1 and 50):<input type="number" name="num_qs" min="1" max="50"</p>
+    <p>Date:<input type="date" name="quizdate"></p>
+    <p><input type="submit" value="Submit"</p>
+</form>
+</body>
+</html>

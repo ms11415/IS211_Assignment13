@@ -7,11 +7,11 @@
 <body>
     {% if error %}
 <p class=error><strong>Error:</strong> {{ error }}
-    {% endif %}
+    {% endif %}</p>
 <p>Please enter your username and password.
 <form action="login" method="post">
     <p><input type="text" name="username"</p>
-    <p><input type="text" name="password"</p>
+    <p><input type="password" name="password"</p>
     <p><input type="submit" value="Login"</p>
 </form>
 

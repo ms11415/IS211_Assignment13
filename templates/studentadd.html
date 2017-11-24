@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Student</title>
+</head>
+<body>
+    {% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}
+<p>Please enter the student's name.
+<form action="add" method="post">
+    <p>First name:<input type="text" name="f_name"</p>
+    <p>Last name:<input type="text" name="l_name"</p>
+    <p><input type="submit" value="Submit"</p>
+</form>
+</body>
+</html>
