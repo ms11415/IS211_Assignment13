@@ -76,6 +76,24 @@ def student_add():
     else:
         return redirect('/login')
 
+@app.route('/student/<id>')
+def view_quiz_results(id):
+    # show quiz results for that student
+    if session['logged_in'] == True:
+        # join the tables to correlate student and quiz data
+        cursor.execute('SELECT * FROM result '
+                       'INNER JOIN student '
+                       'ON result.student_id = student.id '
+                       'INNER JOIN quiz '
+                       'ON result.quiz_id = quiz.id '
+                       'WHERE result.student_id = ?', id)
+        result = cursor.fetchall()
+        cursor.execute('SELECT f_name, l_name FROM student WHERE id = ?', id)
+        name = cursor.fetchone()
+        return render_template('viewresults.html', result=result, name=name)
+    else:
+        return redirect ('/login')
+
 @app.route('/quiz/add', methods=['GET','POST'])
 def quiz_add():
     # first verify logged-in status

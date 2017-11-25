@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Results</title>
+</head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<body>
+{% if result %}
+<h1>Quiz Results for {{ name['f_name'] }} {{ name['l_name'] }}</h1>
+
+<table>
+    <th style="text-align:left">Quiz ID</th>
+    <th style="text-align:left">Quiz Score</th>
+    <th style="text-align:left">Subject</th>
+    <th style="text-align:left">Number of questions</th>
+    <th style="text-align:left">Date</th>
+  <tr>
+  {% for row in result %}
+      <td style="width:100px">{{ row['quiz_id'] }}</td>
+      <td style="width:100px">{{ row['score'] }}</td>
+      <td style="width:200px">{{ row['subject'] }}</td>
+      <td>{{ row['num_qs'] }}</td>
+      <td>{{ row['quizdate'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<h1>No Results</h1>
+{% endif %}
+<p><a href="/dashboard">Return to Dashboard</a></p>
+</body>
+</html>

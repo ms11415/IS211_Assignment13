@@ -15,10 +15,12 @@ table, th, td {
 <table>
     <th style="text-align:left">Student ID</th>
     <th style="text-align:left">Name</th>
+    <th style="text-align:left">Results</th>
   {% for row in student %}
   <tr>
-      <td style="width:100px">{{ row['id']}}</td>
+      <td style="width:90px">{{ row['id']}}</td>
       <td>{{ row['f_name'] }} {{ row['l_name']}}</td>
+      <td><a href="student/{{ row['id'] }}">View</a></td>
   </tr>
   {% endfor %}
 </table>
@@ -31,10 +33,10 @@ table, th, td {
     <th style="text-align:left">Date</th>
   {% for row in quiz %}
   <tr>
-      <td style="width:100px">{{ row['id']}}</td>
-      <td style="width:300px">{{ row['subject']}}</td>
-      <td style="width:200px">{{ row['num_qs'] }}</td>
-      <td style="width:200px">{{ row['quizdate']}}</td>
+      <td style="width:90px">{{ row['id']}}</td>
+      <td style="width:200px">{{ row['subject']}}</td>
+      <td style="width:150px">{{ row['num_qs'] }}</td>
+      <td style="width:100px">{{ row['quizdate']}}</td>
   </tr>
   {% endfor %}
 </table>
